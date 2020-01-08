@@ -25,8 +25,7 @@ class Checkout
     public function __construct(
         Purchase $purchase,
         ProductDao $productDao
-    )
-    {
+    ) {
         $this->purchase = $purchase;
         $this->productDao = $productDao;
     }

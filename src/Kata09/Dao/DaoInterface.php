@@ -3,7 +3,6 @@
 
 namespace Kata09\Dao;
 
-
 interface DaoInterface
 {
     /**

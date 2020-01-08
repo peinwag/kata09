@@ -3,8 +3,6 @@
 
 namespace Kata09\Dao;
 
-
-
 use Kata09\DataObject\Product;
 
 /**

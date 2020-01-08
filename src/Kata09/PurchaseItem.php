@@ -3,7 +3,6 @@
 
 namespace Kata09;
 
-
 use Kata09\DataObject\Product;
 
 class PurchaseItem
