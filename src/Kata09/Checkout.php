@@ -3,31 +3,32 @@
 
 namespace Kata09;
 
-use Kata09\Dao\ProductDao;
+use Kata09\Factory\PurchaseItemFactory;
 
 class Checkout
 {
     /**
      * @var Purchase
      */
-    protected $purchase;
+    private $purchase;
 
     /**
-     * @var ProductDao
+     * @var PurchaseItemFactory
      */
-    protected $productDao;
+    private $purchaseItemFactory;
+
 
     /**
      * Checkout constructor.
      * @param Purchase $purchase
-     * @param ProductDao $productDao
+     * @param PurchaseItemFactory $purchaseItemFactory
      */
     public function __construct(
         Purchase $purchase,
-        ProductDao $productDao
+        PurchaseItemFactory $purchaseItemFactory
     ) {
         $this->purchase = $purchase;
-        $this->productDao = $productDao;
+        $this->purchaseItemFactory = $purchaseItemFactory;
     }
 
     /**
@@ -50,11 +51,11 @@ class Checkout
      */
     public function scan($productId)
     {
-        $product = $this->productDao->findOneById($productId);
-        if (null !== $product) {
-            $item = new PurchaseItem($product);
-            $this->purchase->addItem($item);
+        $purchaseItem = $this->purchaseItemFactory->create($productId);
+        if (null !== $purchaseItem) {
+            $this->purchase->addItem($purchaseItem);
+        } else {
+            // handle this
         }
-        // @TODO: handle the product not found case
     }
 }

@@ -5,7 +5,7 @@ namespace Kata09;
 
 use Kata09\DataObject\Product;
 
-class PurchaseItem
+class PurchaseItem implements Purchasable
 {
     /**
      * @var string
@@ -23,9 +23,9 @@ class PurchaseItem
     private $qty;
 
     /**
-     * @var int
+     * @var
      */
-    private $price;
+    private $basePrice;
 
     /**
      * PurchaseItem constructor.
@@ -36,7 +36,7 @@ class PurchaseItem
     {
         $this->id = uniqid('kata09');
         $this->sku = $product->getId();
-        $this->price = $product->getPrice();
+        $this->basePrice = $product->getPrice();
         $this->qty = $qty;
     }
 
@@ -80,15 +80,12 @@ class PurchaseItem
      */
     public function getPrice()
     {
-        return $this->price * $this->qty;
+        return $this->basePrice * $this->qty;
     }
 
-    /**
-     * @param int $price
-     */
-    public function setPrice($price)
+    public function getBasePrice()
     {
-        $this->price = $price;
+        return $this->basePrice;
     }
 
     /**
@@ -97,13 +94,5 @@ class PurchaseItem
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @param mixed $sku
-     */
-    public function setSku($sku)
-    {
-        $this->sku = $sku;
     }
 }

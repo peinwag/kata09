@@ -11,12 +11,4 @@ interface DaoInterface
      * @return mixed
      */
     public function findAll();
-
-    /**
-     * Find one entity by its id
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function findOneById($id);
 }

@@ -8,6 +8,10 @@ use Kata09\PurchaseItem;
 use Kata09\DataObject\Product;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class PurchaseTest
+ * @package Tests\Kata09
+ */
 class PurchaseTest extends TestCase
 {
 

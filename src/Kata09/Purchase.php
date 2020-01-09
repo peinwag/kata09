@@ -12,7 +12,7 @@ class Purchase
     protected $purchaseItems = [];
 
 
-    public function addItem(PurchaseItem $item)
+    public function addItem(Purchasable $item)
     {
         if (array_key_exists($item->getSku(), $this->purchaseItems)) {
             if (null !== $this->purchaseItems[$item->getSku()]) {

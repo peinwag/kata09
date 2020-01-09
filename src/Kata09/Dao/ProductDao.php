@@ -39,7 +39,7 @@ class ProductDao implements DaoInterface
 
     /**
      * @param $id
-     * @return mixed|null
+     * @return Product|null
      */
     public function findOneById($id)
     {
