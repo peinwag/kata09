@@ -8,6 +8,10 @@
     },
     "scripts": {
         "test": "phpunit -c tests",
-        "phpcbf": "phpcbf --standard=PSR2 src/"
+        "phpcbf": "phpcbf --standard=PSR2 src/",
+        "phpstan": "phpstan analyse src tests --level=1"
+    },
+    "require": {
+        "phpstan/phpstan": "^0.12.4"
     }
 }

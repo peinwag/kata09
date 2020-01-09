@@ -27,8 +27,8 @@ class MultiPricedDiscountTest extends TestCase
     public function testDslParserInvalidDsl()
     {
         $invalidDsl = 'this is not right';
-        $this->expectException(
-            'InvalidArgumentException',
+        $this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessage(
             sprintf("'%s' is not a valid dsl for this pricing rule: '%s'", $invalidDsl, BulkDiscountPricingRule::class)
         );
 
