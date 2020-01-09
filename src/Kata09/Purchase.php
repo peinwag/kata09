@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09;
 
 class Purchase

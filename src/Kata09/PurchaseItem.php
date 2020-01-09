@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09;
 
 use Kata09\DataObject\Product;

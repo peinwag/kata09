@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09\PricingRule;
 
 abstract class AbstractPricingRule implements PricingRuleInterface

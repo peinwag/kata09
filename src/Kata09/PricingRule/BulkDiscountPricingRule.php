@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09\PricingRule;
 
 use Kata09\Purchasable;

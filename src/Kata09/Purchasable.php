@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09;
 
 interface Purchasable

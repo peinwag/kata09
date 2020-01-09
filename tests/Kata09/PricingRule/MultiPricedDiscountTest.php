@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Kata09\PricingRule;
 
 

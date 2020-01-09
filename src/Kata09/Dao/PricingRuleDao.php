@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09\Dao;
 
 use Kata09\DataObject\PricingRule;

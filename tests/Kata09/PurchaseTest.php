@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Kata09;
 
 use Kata09\Purchase;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kata09\Decorator;
 
 use Kata09\PricingRule\PricingRuleInterface;
