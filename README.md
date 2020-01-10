@@ -26,7 +26,7 @@ work with every `Purchasable` see: https://github.com/peinwag/kata09/blob/master
 #### Remarks
 I changed the interface of the checkout proposed by codekata.com a bit by not passing
 all pricing rules in the constructor. I rather retrieve them on the fly for every item, to always have the latest
-pricing rule for it.
+pricing rule for it. It also feels weird to have all pricing rules for all possible items somewhere in memory, even tough there might be only 1 of them in my whole purchase.
 
 
 #### Requirements
