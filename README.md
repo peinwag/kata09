@@ -23,6 +23,12 @@ see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/CheckoutTest.php
 work with every `Purchasable` see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/PricingRule/PercentageDiscountPricingRuleTest.php
 - Price rules make use of a simple dsl*ish definition which can be parsed by every concrete implementation
 
+#### Remarks
+I changed the interface of the checkout proposed by codekata.com a bit by not passing
+all pricing rules in the constructor. I rather retrieve them on the fly for every item, to always have the latest
+pricing rule for it.
+
+
 #### Requirements
 - PHP 7.1.23 (cli)
 
