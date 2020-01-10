@@ -17,7 +17,7 @@ My solution focuses on these parts:
 - Decoupling of the pricing rule execution from the checkout by using decorators for a `Purchasable` interface
 - Decoupling of the rule creation + assignment to certain items by using a factory
 - Adding flexibility by using interfaces for purchasables and pricing rules
-- As decorators can embedded others it's already possible to run more than 1 pricing rule on one item
+- As decorators can embedd others it's already possible to run more than 1 pricing rule on one item
 see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/CheckoutTest.php#L71
 - New pricing rules can be created easily by extending from the `AbstractPricingRule` and implementing the `getPrice` method which can
 work with every `Purchasable` see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/PricingRule/PercentageDiscountPricingRuleTest.php
