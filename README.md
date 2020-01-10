@@ -2,8 +2,26 @@
 
 This repo refers to [this](http://codekata.com/kata/kata09-back-to-the-checkout/) CodeKata.
 
-#### My solution + remarks
+#### Objectives
 
+>To some extent, this is just a fun little problem. But underneath the covers, it’s a stealth exercise
+in decoupling. The challenge description doesn’t mention the format of the pricing rules. 
+How can these be specified in such a way that the checkout doesn’t know about particular items and 
+their pricing strategies? How can we make the design flexible enough so that we can add 
+new styles of pricing rule in the future?
+
+
+#### Solution
+
+My solution focuses on these parts: 
+- Decoupling of the pricing rule execution from the checkout by using decorators for a `Purchasable` interface
+- Decoupling of the rule creation + assignment to certain items by using a factory
+- Adding flexibility by using interfaces for purchasables and pricing rules
+- As decorators can embedded others it's already possible to run more than 1 pricing rule on one item
+see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/CheckoutTest.php#L71
+- New pricing rules can be created easily by extending from the `AbstractPricingRule` and implementing the `getPrice` method which can
+work with every `Purchasable` see: https://github.com/peinwag/kata09/blob/master/tests/Kata09/PricingRule/PercentageDiscountPricingRuleTest.php
+- Price rules make use of a simple dsl*ish definition which can be parsed by every concrete implementation
 
 #### Requirements
 - PHP 7.1.23 (cli)
