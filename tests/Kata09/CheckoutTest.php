@@ -5,6 +5,7 @@ namespace Tests\Kata09;
 use Kata09\Checkout;
 use Kata09\Dao\PricingRuleDao;
 use Kata09\Dao\ProductDao;
+use Kata09\DataObject\PricingRule;
 use Kata09\Factory\PricingRuleFactory;
 use Kata09\Factory\PurchaseItemFactory;
 use Kata09\Purchase;
@@ -18,6 +19,9 @@ use PHPUnit\Framework\TestCase;
  */
 class CheckoutTest extends TestCase
 {
+    /**
+     * Covers the total test required by the kata
+     */
     public function testTotals()
     {
         $this->assertEquals(0, $this->getPurchasePrice(''));
@@ -37,6 +41,9 @@ class CheckoutTest extends TestCase
         $this->assertEquals(190, $this->getPurchasePrice('DABABA'));
     }
 
+    /**
+     * Covers the the incremental tests required by the kata
+     */
     public function testIncremental()
     {
         $checkout = $this->getCheckout();
@@ -55,6 +62,36 @@ class CheckoutTest extends TestCase
     }
 
     /**
+     * This is just a proof of concept as it was not required by the kata itself.
+     *
+     * As we are using the decorator pattern to apply the pricing rules, the order might be important
+     * depending on the business case.
+     * This test assumes that the PricingRuleDao returns the rules in the required order.
+     */
+    public function testCombinedPricingRules()
+    {
+        $pricingRules = [
+            new PricingRule('A', PricingRuleFactory::PRICING_RULE_TYPE_BULK_DISCOUNT, '3 for 130'),
+            new PricingRule('A', PricingRuleFactory::PRICING_RULE_TYPE_PERCENTAGE_DISCOUNT, '10% off'),
+        ];
+
+        $pricingRuleDaoStub = $this->createMock(PricingRuleDao::class);
+        $pricingRuleDaoStub
+            ->method('findBySku')
+            ->with($this->equalTo('A'))
+            ->willReturn($pricingRules);
+
+        $checkout = $this->getCheckout(null, $pricingRuleDaoStub);
+
+        $checkout->scan('A');
+        $checkout->scan('A');
+        $checkout->scan('A');
+        $this->assertEquals(117, $checkout->getTotal());
+    }
+
+    /**
+     * Helper method for testing sequence
+     *
      * @param string $items
      * @return mixed
      */
@@ -63,7 +100,9 @@ class CheckoutTest extends TestCase
         $checkout = $this->getCheckout();
 
         foreach (str_split($items) as $item) {
-            $checkout->scan($item);
+            if ('' !== $item) {
+                $checkout->scan($item);
+            }
         }
 
         return $checkout->getTotal();
@@ -71,13 +110,17 @@ class CheckoutTest extends TestCase
     }
 
     /**
+     * Creates a checkout instance, if needed with stubbed Daos
+     *
+     * @param null $productDaoStub
+     * @param null $pricingRuleDaoStub
      * @return Checkout
      */
-    private function getCheckout()
+    private function getCheckout($productDaoStub = null, $pricingRuleDaoStub = null)
     {
         $purchaseItemFactory = new PurchaseItemFactory(
-            new ProductDao(),
-            new PricingRuleDao(),
+            $productDaoStub ?? new ProductDao(),
+            $pricingRuleDaoStub ?? new PricingRuleDao(),
             new PricingRuleFactory()
         );
         return new Checkout(new Purchase(), $purchaseItemFactory);

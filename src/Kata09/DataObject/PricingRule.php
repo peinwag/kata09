@@ -2,6 +2,10 @@
 
 namespace Kata09\DataObject;
 
+/**
+ * Class PricingRule
+ * @package Kata09\DataObject
+ */
 class PricingRule
 {
     /**

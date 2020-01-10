@@ -18,6 +18,11 @@ class Product
      */
     private $price;
 
+    /**
+     * Product constructor.
+     * @param $id
+     * @param $price
+     */
     public function __construct($id, $price)
     {
         $this->id = $id;

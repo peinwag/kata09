@@ -4,6 +4,10 @@ namespace Kata09;
 
 use Kata09\Factory\PurchaseItemFactory;
 
+/**
+ * Class Checkout
+ * @package Kata09
+ */
 class Checkout
 {
     /**
@@ -31,7 +35,7 @@ class Checkout
     }
 
     /**
-     * Convenience function wrapper for the purchase
+     * Calculates the total of the current purchase
      *
      * @return mixed
      */
@@ -46,7 +50,11 @@ class Checkout
     }
 
     /**
+     * Scans a given product and adds it to the purchase.
+     *
      * @param $productId
+     *
+     * @throws \InvalidArgumentException if the product does not exist
      */
     public function scan($productId)
     {
@@ -54,7 +62,7 @@ class Checkout
         if (null !== $purchaseItem) {
             $this->purchase->addItem($purchaseItem);
         } else {
-            // handle this
+            throw new \InvalidArgumentException(sprintf("Product with id '%s' does not exist", $productId));
         }
     }
 }

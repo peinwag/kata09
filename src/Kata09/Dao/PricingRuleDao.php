@@ -5,10 +5,17 @@ namespace Kata09\Dao;
 use Kata09\DataObject\PricingRule;
 use Kata09\Factory\PricingRuleFactory;
 
+/**
+ * Class PricingRuleDao
+ * @package Kata09\Dao
+ */
 class PricingRuleDao implements DaoInterface
 {
     /**
-     * static price rules store just for the purpose of this kata, otherwise this data would come from a database
+     * Static price rules list just for the purpose of this kata, otherwise this data would come from a database.
+     *
+     * Note: As this just represents the data from the kata, you can stub them in the tests if you want to try
+     * different sets.
      *
      * @var array
      */

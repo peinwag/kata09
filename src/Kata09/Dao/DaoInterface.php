@@ -2,6 +2,10 @@
 
 namespace Kata09\Dao;
 
+/**
+ * Interface DaoInterface
+ * @package Kata09\Dao
+ */
 interface DaoInterface
 {
     /**

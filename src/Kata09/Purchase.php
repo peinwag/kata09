@@ -2,6 +2,10 @@
 
 namespace Kata09;
 
+/**
+ * Class Purchase
+ * @package Kata09
+ */
 class Purchase
 {
 
@@ -11,6 +15,11 @@ class Purchase
     protected $purchaseItems = [];
 
 
+    /**
+     * Either adds a new item to the purchase or increments its quantity
+     *
+     * @param Purchasable $item
+     */
     public function addItem(Purchasable $item)
     {
         if (array_key_exists($item->getSku(), $this->purchaseItems)) {

@@ -12,12 +12,18 @@ class ProductDao implements DaoInterface
 {
 
     /**
-     * static product store just for the purpose of this kata, otherwise this data would come from a database
+     * Static product list just for the purpose of this kata, otherwise this data would come from a database
+     *
+     * Note: As this just represents the data from the kata, you can stub them in the tests if you want to try
+     * different sets.
      *
      * @var array
      */
     private $products;
 
+    /**
+     * ProductDao constructor.
+     */
     public function __construct()
     {
         $this->products = [

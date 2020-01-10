@@ -29,7 +29,7 @@ class BulkDiscountPricingRule extends AbstractPricingRule
 
 
     /**
-     *
+     * Dsl parsing
      */
     public function parseDsl()
     {
@@ -45,6 +45,10 @@ class BulkDiscountPricingRule extends AbstractPricingRule
     }
 
     /**
+     * Executes the price calculation based on the business rule.
+     *
+     * In this case applies a bulk discount e.g. 3 for 130
+     *
      * @param Purchasable $purchasable
      * @return float|int
      */
@@ -65,7 +69,7 @@ class BulkDiscountPricingRule extends AbstractPricingRule
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getMinQty()
     {
@@ -74,7 +78,7 @@ class BulkDiscountPricingRule extends AbstractPricingRule
 
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getMinPrice()
     {

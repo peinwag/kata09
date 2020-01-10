@@ -4,6 +4,10 @@ namespace Kata09;
 
 use Kata09\DataObject\Product;
 
+/**
+ * Class PurchaseItem
+ * @package Kata09
+ */
 class PurchaseItem implements Purchasable
 {
     /**
@@ -12,7 +16,7 @@ class PurchaseItem implements Purchasable
     private $id;
 
     /**
-     * @var
+     * @var string
      */
     private $sku;
 
@@ -22,7 +26,7 @@ class PurchaseItem implements Purchasable
     private $qty;
 
     /**
-     * @var
+     * @var int
      */
     private $basePrice;
 
@@ -64,12 +68,18 @@ class PurchaseItem implements Purchasable
         $this->qty = $qty;
     }
 
-    public function incrementQty($qty)
+    /**
+     * @param int $qty
+     */
+    public function incrementQty(int $qty)
     {
         $this->qty += $qty;
     }
 
-    public function decrementQty($qty)
+    /**
+     * @param int $qty
+     */
+    public function decrementQty(int $qty)
     {
         $this->qty -= $qty;
     }
@@ -82,13 +92,16 @@ class PurchaseItem implements Purchasable
         return $this->basePrice * $this->qty;
     }
 
+    /**
+     * @return int|mixed
+     */
     public function getBasePrice()
     {
         return $this->basePrice;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSku()
     {
