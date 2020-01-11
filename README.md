@@ -30,7 +30,7 @@ pricing rule for it. It also feels weird to have all pricing rules for all possi
 
 
 #### Requirements
-- PHP 7.1.23 (cli)
+- PHP >= 7.1
 
 #### Install
 ```
