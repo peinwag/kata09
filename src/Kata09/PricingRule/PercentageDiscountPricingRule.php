@@ -38,6 +38,8 @@ class PercentageDiscountPricingRule extends AbstractPricingRule
 
     /**
      * Dsl parsing
+     *
+     * @throws \InvalidArgumentException if the dsl is not valid
      */
     public function parseDsl()
     {

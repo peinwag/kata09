@@ -31,6 +31,8 @@ class PricingRuleFactory
      *
      * @param PricingRule $pricingRule
      * @return mixed
+     *
+     * @throws \InvalidArgumentException if the given pricing rule is not implemented
      */
     public function create(PricingRule $pricingRule)
     {

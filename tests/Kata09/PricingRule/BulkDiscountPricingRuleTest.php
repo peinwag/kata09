@@ -9,12 +9,12 @@ use Kata09\PurchaseItem;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class MultiPricedDiscountTest
+ * Class BulkDiscountPricingRuleTest
  * @package Tests\Kata09\Discount
  *
- * @group MultiPricedDiscountTest
+ * @group BulkDiscountPricingRuleTest
  */
-class MultiPricedDiscountTest extends TestCase
+class BulkDiscountPricingRuleTest extends TestCase
 {
 
     public function testDslParserValidDsl()
